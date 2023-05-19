@@ -6,11 +6,24 @@ class DetailImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Image.network(
-        image,
-        alignment: Alignment.center,
-      ),
+    return Stack(
+      children: [
+        Container(
+          height: 300,
+          color: Colors.red,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 40),
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Image.network(
+              image,
+              alignment: Alignment.center,
+              height: 350,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

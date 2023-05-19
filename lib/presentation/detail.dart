@@ -12,42 +12,30 @@ class Details extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green, // Colocar a cor do bicho
         elevation: 0,
+        centerTitle: false,
         title: Text(
           arguments.name[0].toUpperCase() + arguments.name.substring(1),
           style: const TextStyle(
-            fontWeight: FontWeight.bold,
             fontSize: 30,
+            fontWeight: FontWeight.bold,
           ),
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 20, top: 15),
+            padding: const EdgeInsets.only(right: 30, top: 18),
             child: Text(
-              '#${arguments.id.toString()}',
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+              '#${arguments.id}',
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 30),
-              child: SizedBox(
-                width: 200,
-                height: 200,
-                child: DetailImage(image: arguments.image),
-              ),
-            ),
-            DetailData(id: arguments.id),
-          ],
-        ),
+      body: Stack(
+        children: [
+          Positioned(top: 180, child: DetailData(id: arguments.id)),
+          DetailImage(image: arguments.image),
+        ],
       ),
     );
   }
