@@ -25,7 +25,7 @@ class DetailData extends StatelessWidget {
           Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: Colors.amber,
+                color: Colors.orange, // cor do bicho
               ),
               child: const Padding(
                 padding: EdgeInsets.all(8.0),

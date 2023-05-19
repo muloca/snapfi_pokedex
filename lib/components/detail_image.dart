@@ -10,7 +10,7 @@ class DetailImage extends StatelessWidget {
       children: [
         Container(
           height: 300,
-          color: Colors.red,
+          color: Colors.red, // cor do bicho
         ),
         Padding(
           padding: const EdgeInsets.only(top: 40),

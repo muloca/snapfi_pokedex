@@ -12,6 +12,7 @@ class Details extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red, // cor do bicho
         elevation: 0,
         centerTitle: false,
         title: Text(
