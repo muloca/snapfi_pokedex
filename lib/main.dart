@@ -1,56 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:snapfi_test/presentation/detail.dart';
+import 'package:snapfi_test/presentation/home.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'PokeDex - Snapfi',
+      title: 'Pokedex',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
-        useMaterial3: true,
+        primarySwatch: Colors.red,
       ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'PokeDex - ',
-              style: TextStyle(color: Colors.white),
-            ),
-            Image.asset(
-              'assets/snapfi.png',
-              width: 80,
-              color: Colors.white,
-            ),
-          ],
-        ),
-      ),
-      body: const Center(
-        child: Column(),
-      ),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => const Home(),
+        "/details": (context) => const Details(),
+      },
     );
   }
 }
