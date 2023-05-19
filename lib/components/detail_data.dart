@@ -12,17 +12,32 @@ class DetailData extends StatelessWidget {
         minHeight: MediaQuery.of(context).size.height,
       ),
       decoration: const BoxDecoration(
-        color: Colors.yellow,
+        color: Colors.white,
         borderRadius: BorderRadius.all(
           Radius.circular(20),
         ),
       ),
-      child: const Column(
+      child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 200,
           ),
-          Text('teste')
+          Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Colors.amber,
+              ),
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Teste',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ))
         ],
       ),
     );
