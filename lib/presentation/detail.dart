@@ -52,6 +52,9 @@ class _DetailsState extends State<Details> {
       body: FutureBuilder<PokerAPIv2>(
           future: PokeAPI.getPokemon(arguments.name.toLowerCase()),
           builder: (BuildContext context, AsyncSnapshot<PokerAPIv2> snapshot) {
+            if (snapshot.data == null) {
+              return const Center(child: CircularProgressIndicator());
+            }
             return Stack(
               children: [
                 Positioned(
