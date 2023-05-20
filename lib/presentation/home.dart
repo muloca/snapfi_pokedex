@@ -13,16 +13,16 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<Pokemon> pokemon = List.empty();
+  List<Pokemon> pokemon = [];
 
   @override
   void initState() {
     super.initState();
-    getPokemonFromPokeApi();
+    getPokemonsFromPokeApi();
   }
 
-  void getPokemonFromPokeApi() async {
-    PokeAPI.getPokemon().then((response) {
+  void getPokemonsFromPokeApi() async {
+    PokeAPI.getPokemons().then((response) {
       List<Map<String, dynamic>> data = List.from(json.decode(response.body)['results']);
       setState(() {
         pokemon = data.asMap().entries.map<Pokemon>((element) {
@@ -70,7 +70,11 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      body: Container(color: Colors.red, child: PokemonGrid(pokemon: pokemon)),
+      body: Container(
+          color: Colors.red,
+          child: PokemonGrid(
+            pokemon: pokemon,
+          )),
     );
   }
 }

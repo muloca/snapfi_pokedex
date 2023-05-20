@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:snapfi_test/components/base_stats_params.dart';
+import 'package:snapfi_test/models/poke_api_v2_model.dart';
 
 class DetailData extends StatelessWidget {
-  final int id;
-  const DetailData({Key? key, required this.id}) : super(key: key);
+  final PokerAPIv2 pokemon;
+  const DetailData({Key? key, required this.pokemon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class DetailData extends StatelessWidget {
         ),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(
             height: 200,
@@ -30,7 +33,7 @@ class DetailData extends StatelessWidget {
             child: const Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                'Teste',
+                'Fire',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -58,21 +61,21 @@ class DetailData extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  const Column(
+                  Column(
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.monitor_weight_outlined),
-                          SizedBox(
+                          const Icon(Icons.monitor_weight_outlined),
+                          const SizedBox(
                             width: 10,
                           ),
-                          Text('8.5kg')
+                          Text('${(pokemon.weight! / 10).toString()} kg')
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      Text('Weight')
+                      const Text('Weight')
                     ],
                   ),
                   Container(
@@ -80,21 +83,21 @@ class DetailData extends StatelessWidget {
                     width: 1,
                     color: Colors.grey,
                   ),
-                  const Column(
+                  Column(
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.height),
-                          SizedBox(
+                          const Icon(Icons.height),
+                          const SizedBox(
                             width: 10,
                           ),
-                          Text('0,6m')
+                          Text('${(pokemon.height! / 10).toString()} m')
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      Text('Height')
+                      const Text('Height')
                     ],
                   ),
                   Container(
@@ -102,15 +105,15 @@ class DetailData extends StatelessWidget {
                     width: 1,
                     color: Colors.grey,
                   ),
-                  const Column(
+                  Column(
                     children: [
                       Row(
-                        children: [Text('Mega-Punch')],
+                        children: [Text(pokemon.abilities![0].ability!.name.toString())],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      Text('Moves')
+                      const Text('Moves')
                     ],
                   ),
                 ],
@@ -118,7 +121,7 @@ class DetailData extends StatelessWidget {
             ),
           ),
           const Padding(
-            padding: EdgeInsets.only(top: 20),
+            padding: EdgeInsets.only(top: 30),
             child: Text(
               'Base Stats',
               style: TextStyle(
@@ -128,38 +131,38 @@ class DetailData extends StatelessWidget {
               ),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                'HP',
-                style: TextStyle(
-                  color: Colors.orange, // Colocar a vcor do bicho
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Container(
-                  height: 20,
-                  width: 1,
-                  color: Colors.grey,
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(right: 10),
-                child: Text('039'),
-              ),
-              const SizedBox(
-                width: 300,
-                child: LinearProgressIndicator(
-                  value: 39 / 100,
-                  color: Colors.orange,
-                  backgroundColor: Colors.grey,
-                ),
-              )
-            ],
+          const SizedBox(
+            height: 20,
+          ),
+          BaseStatsParams(
+            param: 'HQ',
+            value: pokemon.stats![0].baseStat!.toDouble(),
+            percent: pokemon.stats![0].baseStat!.toDouble(),
+          ),
+          BaseStatsParams(
+            param: 'ATK',
+            value: pokemon.stats![1].baseStat!.toDouble(),
+            percent: pokemon.stats![1].baseStat!.toDouble(),
+          ),
+          BaseStatsParams(
+            param: 'DEF',
+            value: pokemon.stats![2].baseStat!.toDouble(),
+            percent: pokemon.stats![2].baseStat!.toDouble(),
+          ),
+          BaseStatsParams(
+            param: 'SATK',
+            value: pokemon.stats![3].baseStat!.toDouble(),
+            percent: pokemon.stats![3].baseStat!.toDouble(),
+          ),
+          BaseStatsParams(
+            param: 'SDEF',
+            value: pokemon.stats![4].baseStat!.toDouble(),
+            percent: pokemon.stats![4].baseStat!.toDouble(),
+          ),
+          BaseStatsParams(
+            param: 'SPD',
+            value: pokemon.stats![5].baseStat!.toDouble(),
+            percent: pokemon.stats![5].baseStat!.toDouble(),
           ),
         ],
       ),

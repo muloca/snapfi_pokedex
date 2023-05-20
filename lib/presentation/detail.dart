@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:snapfi_test/components/detail_data.dart';
 import 'package:snapfi_test/components/detail_image.dart';
+import 'package:snapfi_test/external/api.dart';
+import 'package:snapfi_test/models/poke_api_v2_model.dart';
 import 'package:snapfi_test/models/pokemon_screen_data.dart';
 
-class Details extends StatelessWidget {
+class Details extends StatefulWidget {
   const Details({Key? key}) : super(key: key);
+
+  @override
+  State<Details> createState() => _DetailsState();
+}
+
+class _DetailsState extends State<Details> {
+  List<PokerAPIv2> pokemon = [];
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,17 +41,27 @@ class Details extends StatelessWidget {
             padding: const EdgeInsets.only(right: 30, top: 18),
             child: Text(
               '#${arguments.id}',
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           )
         ],
       ),
-      body: Stack(
-        children: [
-          Positioned(top: 180, child: DetailData(id: arguments.id)),
-          DetailImage(image: arguments.image),
-        ],
-      ),
+      body: FutureBuilder<PokerAPIv2>(
+          future: PokeAPI.getPokemon(arguments.name.toLowerCase()),
+          builder: (BuildContext context, AsyncSnapshot<PokerAPIv2> snapshot) {
+            return Stack(
+              children: [
+                Positioned(
+                  top: 180,
+                  child: DetailData(pokemon: snapshot.data ?? PokerAPIv2.emptyData()),
+                ),
+                DetailImage(image: arguments.image),
+              ],
+            );
+          }),
     );
   }
 }
