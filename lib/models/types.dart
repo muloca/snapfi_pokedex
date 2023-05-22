@@ -1,14 +1,10 @@
 class Types {
   Type? type;
-  bool? isHidden;
-  int? slot;
 
-  Types({this.type, this.isHidden, this.slot});
+  Types({this.type});
 
   Types.fromJson(Map<String, dynamic> json) {
     type = json['type'] != null ? Type.fromJson(json['type']) : null;
-    isHidden = json['is_hidden'];
-    slot = json['slot'];
   }
 
   Map<String, dynamic> toJson() {
@@ -16,8 +12,6 @@ class Types {
     if (type != null) {
       data['type'] = type!.toJson();
     }
-    data['is_hidden'] = isHidden;
-    data['slot'] = slot;
     return data;
   }
 }
