@@ -18,7 +18,7 @@ class BaseStatsParams extends StatelessWidget {
     return Row(
       children: [
         SizedBox(
-          width: 52,
+          width: 55,
           child: Text(
             param,
             style: TextStyle(
@@ -32,16 +32,19 @@ class BaseStatsParams extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Container(
             height: 20,
-            width: 1,
+            width: 2,
             color: Colors.grey,
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(right: 10),
-          child: Text(value.toString()),
+        SizedBox(
+          width: 55,
+          child: Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: Text(value.toString()),
+          ),
         ),
         SizedBox(
-          width: MediaQuery.of(context).size.width * 0.65,
+          width: MediaQuery.of(context).size.width * 0.60,
           child: LinearProgressIndicator(
             value: percent / 100,
             color: color,

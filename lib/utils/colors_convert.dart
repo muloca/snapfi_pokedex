@@ -9,7 +9,7 @@ Color stringToColor(String colorName) {
     case "blue":
       return Colors.blue;
     case "yellow":
-      return Colors.yellow;
+      return Colors.yellow.shade700;
     case "purple":
       return Colors.purple;
     case "pink":
