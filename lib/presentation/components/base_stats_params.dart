@@ -20,7 +20,7 @@ class BaseStatsParams extends StatelessWidget {
           child: Text(
             param,
             style: const TextStyle(
-              color: Colors.orange, // Colocar a vcor do bicho
+              color: Colors.red,
               fontWeight: FontWeight.bold,
               fontSize: 18,
             ),
@@ -39,10 +39,10 @@ class BaseStatsParams extends StatelessWidget {
           child: Text(value.toString()),
         ),
         SizedBox(
-          width: 300,
+          width: MediaQuery.of(context).size.width * 0.65,
           child: LinearProgressIndicator(
             value: percent / 100,
-            color: Colors.orange,
+            color: Colors.red,
             backgroundColor: Colors.grey,
           ),
         )

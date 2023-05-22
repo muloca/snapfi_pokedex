@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snapfi_test/components/card.dart';
+import 'package:snapfi_test/presentation/components/card.dart';
 import 'package:snapfi_test/models/pokemon_model.dart';
 
 class PokemonGrid extends StatefulWidget {

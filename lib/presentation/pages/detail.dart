@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:snapfi_test/components/detail_data.dart';
-import 'package:snapfi_test/components/detail_image.dart';
+import 'package:snapfi_test/presentation/components/detail_data.dart';
+import 'package:snapfi_test/presentation/components/detail_image.dart';
 import 'package:snapfi_test/external/api.dart';
 import 'package:snapfi_test/models/poke_api_v2_model.dart';
 import 'package:snapfi_test/models/pokemon_screen_data.dart';
@@ -50,7 +50,7 @@ class _DetailsState extends State<Details> {
         ],
       ),
       body: FutureBuilder<PokerAPIv2>(
-          future: PokeAPI.getPokemon(arguments.name.toLowerCase()),
+          future: PokeAPI.getPokemon(arguments.id),
           builder: (BuildContext context, AsyncSnapshot<PokerAPIv2> snapshot) {
             if (snapshot.data == null) {
               return const Center(child: CircularProgressIndicator());
@@ -58,8 +58,8 @@ class _DetailsState extends State<Details> {
             return Stack(
               children: [
                 Positioned(
-                  top: 180,
-                  child: DetailData(pokemon: snapshot.data ?? PokerAPIv2.emptyData()),
+                  top: 100,
+                  child: DetailData(pokemon: snapshot.data!),
                 ),
                 DetailImage(image: arguments.image),
               ],

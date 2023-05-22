@@ -9,7 +9,7 @@ class DetailImage extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: 300,
+          height: 220,
           color: Colors.red, // cor do bicho
         ),
         Padding(
@@ -19,7 +19,7 @@ class DetailImage extends StatelessWidget {
             child: Image.network(
               image,
               alignment: Alignment.center,
-              height: 350,
+              height: 250,
             ),
           ),
         ),

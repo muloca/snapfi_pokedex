@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snapfi_test/components/base_stats_params.dart';
+import 'package:snapfi_test/presentation/components/base_stats_params.dart';
 import 'package:snapfi_test/models/poke_api_v2_model.dart';
 
 class DetailData extends StatelessWidget {
@@ -25,29 +25,56 @@ class DetailData extends StatelessWidget {
           const SizedBox(
             height: 200,
           ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              color: Colors.orange, // cor do bicho
-            ),
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                'Fire',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
+          Row(
+            children: [
+              pokemon.types![0].type!.name != null
+                  ? Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.red,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          pokemon.types![0].type!.name.toString(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    )
+                  : const SizedBox.shrink(),
+              const SizedBox(
+                width: 10,
               ),
-            ),
+              if (pokemon.types!.length >= 2)
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.red,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      pokemon.types![1].type!.name.toString(),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                )
+            ],
           ),
           const Padding(
             padding: EdgeInsets.only(top: 16),
             child: Text(
               'About',
               style: TextStyle(
-                color: Colors.orange,
+                color: Colors.red,
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
@@ -125,7 +152,7 @@ class DetailData extends StatelessWidget {
             child: Text(
               'Base Stats',
               style: TextStyle(
-                color: Colors.orange,
+                color: Colors.red,
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),

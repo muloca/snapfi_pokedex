@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snapfi_test/components/card_data.dart';
+import 'package:snapfi_test/presentation/components/card_data.dart';
 import 'package:snapfi_test/models/pokemon_screen_data.dart';
 
 class PokemonCard extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:snapfi_test/presentation/detail.dart';
-import 'package:snapfi_test/presentation/home.dart';
+import 'package:snapfi_test/presentation/pages/detail.dart';
+import 'package:snapfi_test/presentation/pages/home.dart';
 
 void main() {
   runApp(const App());

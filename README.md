@@ -11,4 +11,5 @@ To run this project you need:
 - Flutter: Channel stable, 3.10.0
 - Dart SDK version: 3.0.0 (stable)
 
-And you can run this project in Android, iOS and Web# snapfi_pokedex
+And you can run this project in Android and iOS
+## Snapfi_pokedex

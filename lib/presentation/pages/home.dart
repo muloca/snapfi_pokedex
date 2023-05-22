@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:snapfi_test/components/grid.dart';
+import 'package:snapfi_test/presentation/components/grid.dart';
 import 'package:snapfi_test/external/api.dart';
 import 'package:snapfi_test/models/pokemon_model.dart';
 
